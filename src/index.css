@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-matte-black: #050505;
+  --color-matte-gray: #121212;
+  --color-premium-gold: #D4AF37;
+  --color-gold-muted: #8B732A;
+  --color-off-white: #F5F5F5;
+  --color-amber-glow: #FFB300;
+  --color-shyam-blue: #0A1128;
+  --color-peacock-blue: #003049;
+  --color-peacock-green: #2D6A4F;
+  --color-pitambara: #F77F00;
+  
+  --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+  --shadow-gold: 0 10px 20px -5px rgba(212, 175, 55, 0.15);
+}
+
+@layer base {
+  body {
+    @apply bg-matte-black text-off-white font-sans antialiased selection:bg-premium-gold selection:text-matte-black;
+  }
+
+  /* GEBUK Typography System */
+  .gebuk-title { 
+    @apply text-4xl font-bold tracking-tight text-white leading-[0.95]; 
+  }
+  .gebuk-subtitle { 
+    @apply text-[10px] uppercase tracking-[0.25em] text-premium-gold font-bold mb-1 block; 
+  }
+}
+
+@layer components {
+  .premium-blur {
+    @apply bg-matte-gray/60 backdrop-blur-2xl border border-white/5;
+  }
+  
+  .matte-card {
+    @apply bg-matte-gray border border-white/5 rounded-[2rem] p-6 shadow-premium transition-all duration-500 hover:border-white/10;
+  }
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0D0D0D; }
+::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }

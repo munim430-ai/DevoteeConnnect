@@ -1,0 +1,13 @@
+{
+  "name": "DevoteeConnect",
+  "description": "An ultra-premium spiritual ecosystem for the global ISKCON community, featuring AI guidance, sadhana tracking, and proximity networking.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "AI-powered spiritual guidance",
+    "Real-time devotee networking",
+    "Digital sadhana tracking",
+    "Secure Seva gifting"
+  ]
+}
