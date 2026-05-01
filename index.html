@@ -1,13 +1,211 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevoteeConnect – Your Divine Digital Sanctuary</title>
+  <meta name="description" content="DevoteeConnect is a premium spiritual ecosystem for modern devotees. Track Sadhana, connect with nearby Sanga, ask scriptural questions and stay aligned with sacred practices all in one elegant interface." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Announcement bar -->
+  <div class="announcement-bar">
+    <p>Beta opening soon for devotees, temples &amp; spiritual communities. <a href="#beta" class="link">Join Early Access</a></p>
+  </div>
 
+  <!-- Hero section -->
+  <header class="hero">
+    <h1>Your Divine Digital Sanctuary</h1>
+    <p class="subtitle">Connect, track, reflect and grow in Krishna Consciousness through one elegant spiritual ecosystem.</p>
+    <div class="cta-buttons">
+      <a href="#beta" class="btn primary">Join the Beta</a>
+      <a href="#ecosystem" class="btn secondary">Explore Features</a>
+    </div>
+  </header>
+
+  <!-- Problem section -->
+  <section class="section problem" id="problem">
+    <h2>Scattered Spiritual Tools</h2>
+    <p class="lead">Your devotional life shouldn’t be fragmented across multiple apps. Japa, Ekadashi reminders, community and spiritual questions deserve one sacred home.</p>
+    <div class="cards">
+      <div class="card">Japa tracked in one place</div>
+      <div class="card">Ekadashi reminders somewhere else</div>
+      <div class="card">Community in messaging apps</div>
+      <div class="card">Spiritual questions lost in search results</div>
+    </div>
+    <p class="transition">DevoteeConnect brings your devotional life into one sacred flow.</p>
+  </section>
+
+  <!-- Ecosystem preview -->
+  <section class="section ecosystem" id="ecosystem">
+    <h2>The DevoteeConnect Ecosystem</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>Sadhana</h3>
+        <p>Track your daily rounds, vows, notes and consistency with a circular Japa tracker and gentle animations.</p>
+      </div>
+      <div class="feature">
+        <h3>Sanga</h3>
+        <p>Discover nearby devotees, temple groups and local sanga circles based on your location – always opt‑in, always private.</p>
+      </div>
+      <div class="feature">
+        <h3>Wisdom</h3>
+        <p>Ask scriptural questions and get guidance from our AI Wisdom Guide, citing sources and encouraging consultation with Guru, Sadhu and Shastra.</p>
+      </div>
+      <div class="feature">
+        <h3>Ekadashi</h3>
+        <p>Never miss a sacred fasting day with localised Ekadashi dates, reminders and paran notifications.</p>
+      </div>
+      <div class="feature">
+        <h3>Devotee Feed</h3>
+        <p>Share realizations, kirtan moments and temple updates in a sacred social space designed for reflection rather than distraction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sadhana Tracker section -->
+  <section class="section sadhana" id="sadhana">
+    <h2>Make your daily practice visible</h2>
+    <p class="lead">Use our circular Japa counter to visualise your progress each day. Track rounds, vows, reflections and streaks without turning devotion into pressure.</p>
+    <!-- simple graphic representation with circle using CSS -->
+    <div class="japa-circle" aria-label="Japa rounds tracker">
+      <div class="japa-progress"></div>
+      <span class="rounds-label">0 / 16</span>
+    </div>
+  </section>
+
+  <!-- Sadhana Rhythm Finder interactive tool -->
+  <section class="section rhythm-finder" id="quiz">
+    <h2>Find Your Sadhana Rhythm</h2>
+    <p class="lead">Answer a few questions about your daily practice and we'll recommend a devotional rhythm for you.</p>
+    <form id="rhythmForm" class="quiz-form">
+      <div class="form-group">
+        <label for="rounds">How many rounds do you chant daily?</label>
+        <select id="rounds" name="rounds" required>
+          <option value="">Select</option>
+          <option value="less_than_4">Less than 4</option>
+          <option value="4_to_8">4 – 8</option>
+          <option value="8_to_16">8 – 16</option>
+          <option value="more_than_16">More than 16</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>When do you prefer to chant?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="time" value="morning" required /> Morning</label>
+          <label><input type="radio" name="time" value="afternoon" /> Afternoon</label>
+          <label><input type="radio" name="time" value="evening" /> Evening</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Do you follow Ekadashi?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ekadashi" value="yes" required /> Yes</label>
+          <label><input type="radio" name="ekadashi" value="no" /> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>What kind of reminders help you stay steady?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="reminder" value="none" required /> None</label>
+          <label><input type="radio" name="reminder" value="gentle" /> Gentle notifications</label>
+          <label><input type="radio" name="reminder" value="accountability" /> Community accountability</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>How long have you been practicing?</label>
+        <select id="experience" name="experience" required>
+          <option value="">Select</option>
+          <option value="beginner">Beginner</option>
+          <option value="steady">Steady practitioner</option>
+          <option value="advanced">Advanced devotee</option>
+        </select>
+      </div>
+      <button type="submit" class="btn primary">Get My Rhythm</button>
+    </form>
+    <div id="result" class="quiz-result" hidden>
+      <h3>Your Suggested Rhythm</h3>
+      <p id="resultText"></p>
+      <a href="#beta" class="btn primary">Save this rhythm</a>
+    </div>
+  </section>
+
+  <!-- Sanga Explorer section -->
+  <section class="section sanga" id="sanga">
+    <h2>Find Sacred Association</h2>
+    <p class="lead">Discover nearby devotees, find temple groups and join local sanga circles. Privacy is our priority — location sharing is always opt‑in.</p>
+    <!-- map placeholder -->
+    <div class="map-placeholder">Map coming soon</div>
+  </section>
+
+  <!-- Devotee Feed section -->
+  <section class="section feed" id="feed">
+    <h2>Share Realisations</h2>
+    <p class="lead">Post your reflections, kirtan moments and temple updates in a sacred feed designed for contemplation rather than distraction.</p>
+    <!-- feed placeholder -->
+    <div class="feed-placeholder">Devotee Feed launching soon</div>
+  </section>
+
+  <!-- AI Wisdom Guide section -->
+  <section class="section wisdom" id="wisdom">
+    <h2>Ask Deep Questions</h2>
+    <p class="lead">Our AI Wisdom Guide supports your spiritual inquiry. Ask scriptural questions and receive responses referencing Guru, Sadhu and Shastra — it does not replace personal guidance.</p>
+    <!-- wisdom placeholder -->
+    <div class="wisdom-placeholder">AI Wisdom Guide coming soon</div>
+  </section>
+
+  <!-- Ekadashi Portal section -->
+  <section class="section ekadashi" id="ekadashi">
+    <h2>Stay Aligned with Ekadashi</h2>
+    <p class="lead">Never miss a sacred fasting day. Receive personalised Ekadashi dates, countdowns and paran reminders based on your location.</p>
+    <!-- ekadashi placeholder -->
+    <div class="ekadashi-placeholder">Ekadashi Portal launching soon</div>
+  </section>
+
+  <!-- Audience section -->
+  <section class="section audience" id="audience">
+    <h2>Built for Modern Devotees</h2>
+    <p class="lead">Whether you are just beginning your practice or deepening a lifelong journey, DevoteeConnect helps organise the sacred parts of your day.</p>
+    <div class="audience-cards">
+      <div class="audience-card">Students</div>
+      <div class="audience-card">Householders</div>
+      <div class="audience-card">Temple communities</div>
+      <div class="audience-card">Travelling devotees</div>
+      <div class="audience-card">New seekers</div>
+      <div class="audience-card">Sadhana groups</div>
+    </div>
+  </section>
+
+  <!-- Beta invitation -->
+  <section class="section beta" id="beta">
+    <h2>Enter the sanctuary early</h2>
+    <p class="lead">Join the DevoteeConnect beta and be the first to experience the full ecosystem. We’ll keep you updated with meaningful emails only — no spam.</p>
+    <form class="beta-form" action="https://example.com/submit" method="POST">
+      <div class="form-group"><input type="text" name="name" placeholder="Full Name" required /></div>
+      <div class="form-group"><input type="email" name="email" placeholder="Email address" required /></div>
+      <div class="form-group"><input type="text" name="city" placeholder="City" /></div>
+      <div class="form-group"><select name="practitionerType" required>
+        <option value="">Practitioner type</option>
+        <option value="beginner">Beginner</option>
+        <option value="steady">Steady practitioner</option>
+        <option value="advanced">Advanced devotee</option>
+        <option value="teacher">Teacher / leader</option>
+      </select></div>
+      <button type="submit" class="btn primary">Join the DevoteeConnect Beta</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Features</a>
+      <a href="#">Community</a>
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="credit">Crafted by Keystone</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
