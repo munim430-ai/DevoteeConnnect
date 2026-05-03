@@ -24,8 +24,10 @@ import Dashboard from './components/Dashboard';
 import SadhanaTracker from './components/SadhanaTracker';
 import SocialFeed from './components/SocialFeed';
 import Hub from './components/Hub';
+import LandingPage from './components/LandingPage';
+import StyleGuide from './components/StyleGuide';
 
-type Tab = 'dashboard' | 'feed' | 'sadhana' | 'hub';
+type Tab = 'dashboard' | 'feed' | 'sadhana' | 'hub' | 'landing' | 'styleguide';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>('dashboard');
@@ -135,36 +137,56 @@ export default function App() {
               {activeTab === 'feed' && <SocialFeed language={language} />}
               {activeTab === 'sadhana' && <SadhanaTracker language={language} />}
               {activeTab === 'hub' && <Hub language={language} />}
+              {activeTab === 'landing' && <LandingPage />}
+              {activeTab === 'styleguide' && <StyleGuide />}
             </motion.div>
           </AnimatePresence>
         </main>
 
         {/* Bottom Navigation */}
-        <nav className="absolute bottom-0 w-full bg-matte-black/90 backdrop-blur-3xl px-2 py-6 pb-10 flex justify-around items-center z-[70] border-t border-white/5">
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as Tab)}
-                className="flex flex-col items-center gap-1.5 transition-all group"
-              >
-                <div className={`p-2.5 rounded-2xl transition-all duration-300 relative ${
-                  isActive 
-                    ? 'bg-pitambara text-shyam-blue shadow-[0_0_20px_rgba(247,127,0,0.3)] scale-110' 
-                    : 'text-gray-600 hover:text-white hover:bg-white/5'
-                }`}>
-                  <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
-                </div>
-                <span className={`text-[9px] font-bold tracking-tighter uppercase ${
-                  isActive ? 'text-premium-gold' : 'text-gray-600'
-                }`}>
-                  {tab.label}
-                </span>
-              </button>
-            );
-          })}
+        <nav className="absolute bottom-0 w-full bg-matte-black/90 backdrop-blur-3xl px-2 py-4 pb-10 flex flex-col gap-4 z-[70] border-t border-white/5">
+          <div className="flex justify-around items-center w-full">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as Tab)}
+                  className="flex flex-col items-center gap-1.5 transition-all group"
+                >
+                  <div className={`p-2.5 rounded-2xl transition-all duration-300 relative ${
+                    isActive 
+                      ? 'bg-pitambara text-shyam-blue shadow-[0_0_20px_rgba(247,127,0,0.3)] scale-110' 
+                      : 'text-gray-600 hover:text-white hover:bg-white/5'
+                  }`}>
+                    <Icon size={18} strokeWidth={isActive ? 2.5 : 2} />
+                  </div>
+                  <span className={`text-[8px] font-bold tracking-tighter uppercase ${
+                    isActive ? 'text-pitambara' : 'text-gray-600'
+                  }`}>
+                    {tab.label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Style Options */}
+          <div className="flex justify-center gap-6 pt-2 opacity-40 hover:opacity-100 transition-opacity">
+            <button 
+              onClick={() => setActiveTab('landing')}
+              className={`text-[7px] font-black uppercase tracking-widest px-3 py-1 rounded-full border ${activeTab === 'landing' ? 'border-pitambara text-pitambara bg-pitambara/10' : 'border-white/10 text-gray-700'}`}
+            >
+              Landing View
+            </button>
+            <button 
+              onClick={() => setActiveTab('styleguide')}
+              className={`text-[7px] font-black uppercase tracking-widest px-3 py-1 rounded-full border ${activeTab === 'styleguide' ? 'border-pitambara text-pitambara bg-pitambara/10' : 'border-white/10 text-gray-700'}`}
+            >
+              UI Kit
+            </button>
+          </div>
         </nav>
       </div>
     </div>
